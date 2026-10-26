@@ -1,0 +1,5 @@
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.jt-grid { align-items: start; }
+#input { min-height: 360px; }
+.jt-out { min-height: 520px; max-height: 720px; overflow: auto; white-space: pre; word-break: normal; tab-size: 4; margin: 0; }
+@media (max-width: 760px) { .jt-out { min-height: 280px; } }

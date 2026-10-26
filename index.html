@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>JSON to Types — JSON to TypeScript, Go, Python &amp; Zod | S3eidat Tools</title>
+<meta name="description" content="Paste a JSON sample and get TypeScript interfaces, Go structs with json tags, Python dataclasses and a Zod schema. Merges array items, detects optional and nullable fields. Free, private, nothing uploaded.">
+<meta property="og:title" content="JSON to Types — TypeScript, Go, Python and Zod from JSON">
+<meta property="og:description" content="Generate types from a JSON sample. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="json-to-types">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>JSON to Types</h1>
+    <p>Paste a JSON sample and get TypeScript interfaces, Go structs, Python dataclasses and a Zod schema. Array items are merged, so fields missing from some items become optional.</p>
+  </section>
+
+  <div class="grid-2 jt-grid">
+    <section class="card stack">
+      <div class="row between">
+        <h2>JSON sample</h2>
+        <div class="row">
+          <button class="btn ghost small" id="sample">Sample</button>
+          <label class="btn ghost small" id="open">Open file<input type="file" accept=".json,application/json,text/plain" hidden></label>
+          <button class="btn ghost small" id="clear">Clear</button>
+        </div>
+      </div>
+      <label class="sr" for="input">JSON sample</label>
+      <textarea class="textarea" id="input" spellcheck="false" placeholder='{"id": 1, "name": "Ada", "tags": ["math"]}'></textarea>
+      <div class="row">
+        <label class="field grow">Root type name<input class="input mono" id="root" value="Root" spellcheck="false" autocomplete="off"></label>
+      </div>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="export" checked> <code>export</code> (TS / Zod)</label>
+        <label class="check"><input type="checkbox" id="tsType"> TS <code>type</code> instead of <code>interface</code></label>
+        <label class="check"><input type="checkbox" id="goOmit" checked> Go <code>omitempty</code> on optional</label>
+      </div>
+      <div class="row"><span class="chip" id="status">Waiting for JSON</span><span class="faint" id="info"></span></div>
+    </section>
+
+    <section class="card stack">
+      <div class="row between">
+        <div class="seg" id="lang" role="group" aria-label="Language">
+          <button aria-pressed="true" data-v="ts">TypeScript</button>
+          <button aria-pressed="false" data-v="go">Go</button>
+          <button aria-pressed="false" data-v="py">Python</button>
+          <button aria-pressed="false" data-v="zod">Zod</button>
+        </div>
+        <div class="row">
+          <button class="btn small" id="copy"><svg class="i"><use href="#i-copy"/></svg>Copy</button>
+          <button class="btn small" id="save"><svg class="i"><use href="#i-download"/></svg><span id="ext">.ts</span></button>
+        </div>
+      </div>
+      <pre class="out jt-out" id="out" tabindex="0"></pre>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
